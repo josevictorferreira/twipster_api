@@ -1,0 +1,39 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/tipsters":
+    post:
+      summary: Creates a Tipster
+      tags:
+      - Tipsters
+      parameters: []
+      responses:
+        '201':
+          description: tipster created
+          content: {}
+        '422':
+          description: invalid request
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: John Doe
+                user:
+                  type: string
+                  example: john_doe
+              required:
+              - name
+              - user
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
