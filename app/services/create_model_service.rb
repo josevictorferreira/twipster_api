@@ -17,7 +17,7 @@ class CreateModelService < Aldous::Service
       model_failure_callback.call
       Result::Failure.new(
         model_key => model,
-        details: model.errors.full_messages.join(', ')
+        errors: model.errors.full_messages.join(', ')
       )
     end
   end

@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem 'active_model_serializers', '~> 0.10.11'
 gem 'aldous', '~> 1.1.3'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'mongoid', '~> 7.0.5'
@@ -26,7 +27,7 @@ group :development, :test do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
-  gem 'simplecov',  '~> 0.12.0'
+  gem 'simplecov',  '~> 0.20.0'
 end
 
 group :development do
@@ -34,5 +35,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

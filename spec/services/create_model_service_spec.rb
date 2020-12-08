@@ -69,7 +69,7 @@ describe CreateModelService do
       it { expect(model).to have_received(:errors).once }
       it { expect(service_perform).to be_a_failure }
       it { expect(service_perform.instance_variable).to eql model }
-      it { expect(service_perform.details).to eql 'error' }
+      it { expect(service_perform.errors).to include 'error' }
     end
   end
 end

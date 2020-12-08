@@ -8,18 +8,19 @@ module Api
       def index
         @tipsters = Tipster.all
 
-        render json: @tipsters
+        render json: @tipsters, each_serializer: serializer
       end
 
       def show
-        render json: @tipster
+        render json: @tipster, serializer: serializer
       end
 
       def create
-        Tipsters::CreateService.perform!(tipster_params).yielf_self do |service|
+        Tipsters::CreateService.perform!(tipster_params).yield_self do |service|
           if service.success?
             render json: service.tipster,
-                   status: :created
+                   status: :created,
+                   serializer: serializer
           else
             render json: service.errors, status: :unprocessable_entity
           end
@@ -27,10 +28,11 @@ module Api
       end
 
       def update
-        Tipsters::UpdateService.perform!(@tipster, tipster_params).yielf_self do |service|
+        Tipsters::UpdateService.perform!(@tipster, tipster_params).yield_self do |service|
           if service.success?
             render json: service.tipster,
-                   status: :ok
+                   status: :ok,
+                   serializer: serializer
           else
             render json: service.errors, status: :unprocessable_entity
           end
@@ -42,6 +44,10 @@ module Api
       end
 
       private
+
+      def serializer
+        ::Api::V1::TipsterSerializer
+      end
 
       def set_tipster
         @tipster = Tipster.find(params[:id])

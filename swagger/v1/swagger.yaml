@@ -5,6 +5,14 @@ info:
   version: v1
 paths:
   "/api/v1/tipsters":
+    get:
+      summary: List all Tipsters
+      tags:
+      - Tipsters
+      responses:
+        '200':
+          description: tipsters listed
+          content: {}
     post:
       summary: Creates a Tipster
       tags:
@@ -32,8 +40,66 @@ paths:
               required:
               - name
               - user
+  "/api/v1/tipsters/{id}":
+    get:
+      summary: Show a tipster
+      tags:
+      - Tipsters
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: show tipster
+          content: {}
+    put:
+      summary: Updates a tipster
+      tags:
+      - Tipsters
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: tipster updated
+          content: {}
+        '422':
+          description: invalid request
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: John Doe
+                user:
+                  type: string
+                  example: john_doe
+    delete:
+      summary: Show a tipster
+      tags:
+      - Tipsters
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '204':
+          description: tipster deleted
+          content: {}
 servers:
-- url: https://{defaultHost}
+- url: http://localhost:3000
   variables:
     defaultHost:
-      default: www.example.com
+      default: http://localhost:3000
