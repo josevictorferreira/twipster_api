@@ -17,10 +17,11 @@ describe TweetPredictor::Client, :vcr do
       it { expect(predict['status']).to eq(200) }
     end
 
-    context 'when fail' do
+    context 'when error' do
       subject(:predict) { client.predict(text, tipster) }
 
       let(:text) { 1 }
+      let(:tipster) { nil }
 
       it { expect { predict }.to raise_error(StandardError) }
     end
