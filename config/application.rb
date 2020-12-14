@@ -21,6 +21,7 @@ module TwipsterApi
       #{config.root}/app/services
     )
 
+    config.eager_load_paths << "#{Rails.root}/lib"
     config.eager_load_paths += %W(
       #{config.root}/app/services
     )

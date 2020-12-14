@@ -8,6 +8,7 @@ ruby '2.6.5'
 gem 'active_model_serializers', '~> 0.10.11'
 gem 'aldous', '~> 1.1.3'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'faraday', '~> 1.1.0'
 gem 'mongoid', '~> 7.0.5'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
@@ -28,6 +29,7 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
   gem 'simplecov',  '~> 0.20.0'
+  gem 'vcr', '~> 6.0.0'
 end
 
 group :development do
