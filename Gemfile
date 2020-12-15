@@ -14,6 +14,7 @@ gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'rswag-api', '~> 2.3.1'
 gem 'rswag-ui', '~> 2.3.1'
+gem 'typhoeus', '~> 1.4.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

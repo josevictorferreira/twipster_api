@@ -20,8 +20,8 @@ describe TweetPredictor::Client, :vcr do
     context 'when error' do
       subject(:predict) { client.predict(text, tipster) }
 
-      let(:text) { 1 }
-      let(:tipster) { nil }
+      let(:text) { nil }
+      let(:tipster) { 'Random Tipster' }
 
       it { expect { predict }.to raise_error(StandardError) }
     end

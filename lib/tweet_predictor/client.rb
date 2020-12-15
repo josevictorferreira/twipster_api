@@ -26,7 +26,7 @@ module TweetPredictor
     def client
       @client ||= Faraday.new(API_ENDPOINT) do |client|
         client.request :url_encoded
-        client.adapter Faraday.default_adapter
+        client.adapter :typhoeus
         client.headers = headers
       end
     end

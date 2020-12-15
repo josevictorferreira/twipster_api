@@ -1,0 +1,28 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:5000/predict
+    body:
+      encoding: UTF-8
+      string: '{"text":null,"tipster":"Random Tipster"}'
+    headers:
+      Content-type:
+      - application/json
+      User-Agent:
+      - Faraday v1.1.0
+  response:
+    status:
+      code: 422
+      message:
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '65'
+    body:
+      encoding: UTF-8
+      string: "{\n  \"errors\": [\n    \"Missing parameter.\"\n  ], \n  \"status\":
+        422\n}\n"
+  recorded_at: Tue, 15 Dec 2020 01:52:34 GMT
+recorded_with: VCR 6.0.0
