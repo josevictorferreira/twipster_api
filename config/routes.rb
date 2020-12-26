@@ -9,4 +9,8 @@ Rails.application.routes.draw do
       resources :tipsters
     end
   end
+
+  namespace :webhooks, constraints: { format: 'json' } do
+    get 'twitter', to: 'twitter#webhook_challenge'
+  end
 end
